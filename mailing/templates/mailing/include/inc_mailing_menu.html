@@ -1,0 +1,17 @@
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <a href="/" class="btn btn-outline-primary">Управление рассылками</a>
+    <div class="col-sm-4 offset-md-1 py-4">
+        <ul class="list-unstyled">
+            <li><a class="me-4 py-2 text-dark text-decoration-none" href="{% url 'mailing:create' %}">Создать</a></li>
+            <li><a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'mailing:mailing' %}">Все рассылки</a></li>
+            <li><a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'blog:list' %}">Блог</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'users:profile' %}" class="me-3 py-2 text-dark text-decoration-none">Профиль</a></li>
+            <li><a href="{% url 'users:logout' %}" class="me-3 py-2 text-dark text-decoration-none">Выйти</a></li>
+            {% else %}
+            <li><a href="{% url 'users:login' %}" class="me-3 py-2 text-dark text-decoration-none">Войти</a></li>
+            <li><a href="{% url 'users:register' %}" class="me-3 py-2 text-dark text-decoration-none">Регистрация</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
